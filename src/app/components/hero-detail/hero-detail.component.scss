@@ -47,36 +47,3 @@ button:disabled {
 .invalid{
   border-color: red;
 }
-
-
-
-
-
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  transform: rotate(90deg);
-  height: 80px;
-  opacity: 0;
-}
-
-.quantity-wrapper {
-  position: relative;
-}
-
-.quantity-wrapper:after {
-  content: "+";
-  position: absolute;
-  right: 5px;
-  height: 100%;
-  top: 8px;
-  pointer-events: none;
-}
-
-.quantity-wrapper:before {
-  content: "-";
-  position: absolute;
-  left: 5px;
-  height: 100%;
-  top: 8px;
-}
