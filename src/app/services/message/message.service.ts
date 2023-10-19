@@ -7,7 +7,8 @@ export class MessageService {
   messages: string[] = [];
 
   add(message: string) {
-    this.messages.push(message);
+    let currentDate = new Date(Date.now()).toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    this.messages.push(currentDate + ': ' + message);
   }
 
   clear() {
