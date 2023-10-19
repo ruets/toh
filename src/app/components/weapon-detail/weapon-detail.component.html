@@ -1,0 +1,44 @@
+<div *ngIf="weapon">
+
+  <h2>{{weapon.name | uppercase}} Details</h2>
+
+  <div class="weapon-stats">
+    <h3> General : </h3>
+
+    <div>
+      <label for="weapon-name">Name: </label>
+      <input id="weapon-name" [(ngModel)]="weapon.name" placeholder="name">
+    </div>
+
+    <h3> Stats : </h3>
+    <div>
+      <label>Attack:</label>
+      <input id="weapon-attack" [class.invalid]="getAttack() < MIN_POINTS" type="number" [(ngModel)]="weapon.attack" placeholder="Attack" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Dodge:</label>
+      <input id="weapon-dodge" [class.invalid]="getDodge() < MIN_POINTS" type="number" [(ngModel)]="weapon.dodge" placeholder="Dodge" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Damages:</label>
+      <input id="weapon-damages" [class.invalid]="getDamages() < MIN_POINTS" type="number" [(ngModel)]="weapon.damages" placeholder="Damages" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Life:</label>
+      <input id="weapon-life" [class.invalid]="getLife() < MIN_POINTS" type="number" [(ngModel)]="weapon.life" placeholder="Life" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Total stats:</label>
+      <input id="weapon-total" [class.invalid]="getTotals() != TOTAL_POINTS" type="number" value={{getTotals()}} placeholder="Total" readonly="readonly">
+      <p>/{{TOTAL_POINTS}}</p>
+    </div>
+
+  </div>
+  <button type="button" (click)="goBack()">Go back</button>
+  <button type="button" (click)="saveWeapon()">Save</button>
+  <button type="button" (click)="deleteWeapon()">Delete</button>
+</div>

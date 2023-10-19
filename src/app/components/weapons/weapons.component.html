@@ -1,0 +1,13 @@
+<div id="weapons-main-div">
+  <h2>My Weapons</h2>
+  <a routerLink="/weapons/add">Add <span>+</span></a>
+</div>
+<div class="row">
+  <ul class="weapons">
+    <li *ngFor="let weapon of weapons">
+      <a routerLink="/weapons/{{weapon.id}}">
+        <span class="badge">{{weapon.id}}</span> {{weapon.name}}
+      </a>
+    </li>
+  </ul>
+</div>

@@ -11,6 +11,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { WeaponsComponent } from './components/weapons/weapons.component';
+import { WeaponDetailComponent } from './components/weapon-detail/weapon-detail.component';
 
 @NgModule({
   declarations: [
