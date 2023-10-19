@@ -1,8 +1,19 @@
-<h2>My Heroes</h2>
+<div id="heroes-main-div">
+  <h2>My Heroes</h2>
+  <a routerLink="/heroes/add">Add <span>+</span></a>
+
+  <div>
+    <label>Name:</label> <input #heroName />
+    <label>Attack:</label> <input type="number" min="1" max="40"/>
+    <label>Dodge:</label> <input type="number" min="1" max="40"/>
+    <label>Damages:</label> <input type="number" min="1" max="40"/>
+    <label>Life</label> <input type="number" min="1" max="40"/>
+  </div>
+</div>
 <div class="row">
   <ul class="heroes">
     <li *ngFor="let hero of heroes">
-      <a routerLink="/detail/{{hero.id}}">
+      <a routerLink="/heroes/{{hero.id}}">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </a>
     </li>

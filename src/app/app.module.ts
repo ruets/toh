@@ -20,7 +20,9 @@ import { WeaponDetailComponent } from './components/weapon-detail/weapon-detail.
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    WeaponsComponent,
+    WeaponDetailComponent
   ],
   imports: [
     BrowserModule,

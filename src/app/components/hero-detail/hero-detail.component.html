@@ -1,10 +1,53 @@
 <div *ngIf="hero">
 
   <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+
+  <div class="hero-stats">
+    <h3> General : </h3>
+
+    <div>
+      <label for="hero-name">Name: </label>
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+
+    <div>
+      <label for="hero-weapon">Weapon: </label>
+      <select id="hero-weapon" [(ngModel)]="hero.weaponId">
+        <option value="">None</option>
+        <option *ngFor="let weapon of weapons" [value]="weapon.id">{{weapon.name}} ({{weapon.id}})</option>
+      </select>
+
+    </div>
+
+    <h3> Stats : </h3>
+    <div>
+      <label>Attack:</label>
+      <input id="hero-attack" [class.invalid]="getAttack() < MIN_POINTS" type="number" [(ngModel)]="hero.attack" placeholder="Attack" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Dodge:</label>
+      <input id="hero-dodge" [class.invalid]="getDodge() < MIN_POINTS" type="number" [(ngModel)]="hero.dodge" placeholder="Dodge" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Damages:</label>
+      <input id="hero-damages" [class.invalid]="getDamages() < MIN_POINTS" type="number" [(ngModel)]="hero.damages" placeholder="Damages" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Life:</label>
+      <input id="hero-life" [class.invalid]="getLife() < MIN_POINTS" type="number" [(ngModel)]="hero.life" placeholder="Life" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+    </div>
+
+    <div>
+      <label>Total stats:</label>
+      <input id="hero-total" [class.invalid]="getTotals() > MAX_POINTS || getTotals() < MIN_POINTS*4" type="number" value={{getTotals()}} min="{{MIN_POINTS*4}}" max="{{MAX_POINTS}}" readonly="readonly" placeholder="Total">
+      <p>/{{MAX_POINTS}}</p>
+    </div>
+
   </div>
   <button type="button" (click)="goBack()">Go back</button>
+  <button type="button" (click)="saveHero()">Save</button>
+  <button type="button" (click)="deleteHero()">Delete</button>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero} from "../../model/hero";
 import { HeroService } from '../../services/hero/hero.service';
+import { WeaponService } from '../../services/weapon/weapon.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,16 +8,25 @@ import { HeroService } from '../../services/hero/hero.service';
   styleUrls: [ './dashboard.component.scss' ]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  heroesNb = 0;
+  weaponsNb = 0;
+  pseudo = "STR"
+  // TODO : modify and add a modal to modify pseudo
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService, private weaponService: WeaponService) { }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getHeroesNb();
+    this.getWeaponsNb();
   }
 
-  getHeroes(): void {
+  getHeroesNb(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+      .subscribe(heroes => this.heroesNb = heroes.length);
+  }
+
+  getWeaponsNb(): void {
+    this.weaponService.getWeapons()
+      .subscribe(weapons => this.weaponsNb = weapons.length);
   }
 }
