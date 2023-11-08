@@ -10,7 +10,7 @@ import { WeaponService } from '../../services/weapon/weapon.service';
 export class DashboardComponent implements OnInit {
   heroesNb = 0;
   weaponsNb = 0;
-  pseudo = "STR"
+  pseudo = "Player"
   // TODO : modify and add a modal to modify pseudo
 
   constructor(private heroService: HeroService, private weaponService: WeaponService) { }
