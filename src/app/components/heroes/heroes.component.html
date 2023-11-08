@@ -1,13 +1,34 @@
 <div id="heroes-main-div">
   <h2>My Heroes</h2>
-  <a routerLink="/heroes/add">Add <span>+</span></a>
 </div>
 <div class="row">
   <ul class="heroes">
     <li *ngFor="let hero of heroes">
-      <a routerLink="/heroes/{{hero.id}}">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
-      </a>
+        <div class="card">
+          <div class="card-border-top"></div>
+          <div class="img">
+<!--            <img src="{{hero.img}}" alt="{{hero.name}}">-->
+          </div>
+          <span> {{hero.name}} </span>
+          <p class="stats">
+            Attack: {{hero.attack}} <br>
+            Dodge: {{hero.dodge}} <br>
+            Damages: {{hero.damages}} <br>
+            Life: {{hero.life}} <br>
+          </p>
+          <a routerLink="/heroes/{{hero.id}}">
+            <button> Details </button>
+          </a>
+        </div>
     </li>
   </ul>
 </div>
+
+<a routerLink="/heroes/add">
+  <button class="Btn">
+
+    <div class="sign"><svg viewBox="0 -960 960 960"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+
+    <div class="text">Add</div>
+  </button>
+</a>

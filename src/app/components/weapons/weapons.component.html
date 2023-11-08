@@ -1,13 +1,35 @@
 <div id="weapons-main-div">
   <h2>My Weapons</h2>
-  <a routerLink="/weapons/add">Add <span>+</span></a>
 </div>
 <div class="row">
   <ul class="weapons">
     <li *ngFor="let weapon of weapons">
-      <a routerLink="/weapons/{{weapon.id}}">
-        <span class="badge">{{weapon.id}}</span> {{weapon.name}}
-      </a>
+
+      <div class="card">
+        <div class="card-border-top"></div>
+        <div class="img">
+          <!--            <img src="{{weapon.img}}" alt="{{weapon.name}}">-->
+        </div>
+        <span> {{weapon.name}} </span>
+        <p class="stats">
+          Attack: {{weapon.attack}} <br>
+          Dodge: {{weapon.dodge}} <br>
+          Damages: {{weapon.damages}} <br>
+          Life: {{weapon.life}} <br>
+        </p>
+        <a routerLink="/weapons/{{weapon.id}}">
+          <button> Details </button>
+        </a>
+      </div>
     </li>
   </ul>
 </div>
+
+<a routerLink="/weapons/add">
+  <button class="Btn">
+
+    <div class="sign"><svg viewBox="0 -960 960 960"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+
+    <div class="text">Add</div>
+  </button>
+</a>
