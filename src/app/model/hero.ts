@@ -1,15 +1,37 @@
-import { Weapon } from "./weapon";
+import {Weapon} from "./weapon";
+import {WeaponService} from "../services/weapon/weapon.service";
 
-export interface Hero {
+export class Hero {
+  // Only theses data are stored in the database
   id: number;
   name: string;
   weaponId?: string;
-
-  // 40 points to distribute
-  // between attack, dodge, damages and life
-  // Each attribute must be at least 1
   attack: number;
   dodge: number;
   damages: number;
   life: number;
+
+  // The following data are not stored in the database and is initialized in the constructor
+  weapon?: Weapon;
+  imgURL?: string;
+
+    constructor(id: number, name: string, weaponId: string, attack: number, dodge: number, damages: number, life: number) {
+    this.id = id;
+    this.name = name;
+    this.weaponId = weaponId;
+    this.attack = attack;
+    this.dodge = dodge;
+    this.damages = damages;
+    this.life = life;
+
+    this.getWeapon();
+    this.imgURL = "https://api.dicebear.com/7.x/adventurer/svg?seed=" + this.name;
+  }
+
+  getWeapon(): void {
+    if (this.weaponId) {
+      WeaponService.prototype.getWeapon(this.weaponId)
+        .subscribe(weapon => this.weapon = weapon);
+    }
+  }
 }

@@ -32,7 +32,7 @@ export class HeroDetailComponent {
     if (id != 'add') {
       this.getHero();
     } else {
-      this.hero = {id: NaN, name: '', attack: NaN, dodge: NaN, damages: NaN, life: NaN};
+      this.hero = new Hero(NaN, '', '', NaN, NaN, NaN, NaN);
     }
 
     this.getWeapons().subscribe(weapons => this.weapons = weapons);
