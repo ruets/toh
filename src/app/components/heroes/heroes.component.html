@@ -1,6 +1,5 @@
-<div id="heroes-main-div">
-  <h2>My Heroes</h2>
-</div>
+<h2>My Heroes</h2>
+
 <div class="row">
   <ul class="heroes">
     <li *ngFor="let hero of heroes">
@@ -8,6 +7,12 @@
           <div class="card-border-top"></div>
           <div class="img">
 <!--            <img src="{{hero.img}}" alt="{{hero.name}}">-->
+            <img
+              src="https://api.dicebear.com/7.x/adventurer/svg?seed={{hero.id}}"
+              alt="avatar"
+              width="70px"
+              height="80px"
+            />
           </div>
           <span> {{hero.name}} </span>
           <p class="stats">
