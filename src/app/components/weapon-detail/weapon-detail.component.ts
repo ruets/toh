@@ -16,6 +16,7 @@ export class WeaponDetailComponent {
   readonly MAX_POINTS = 5;
   readonly MIN_POINTS = -5;
   readonly TOTAL_POINTS = 0;
+  weaponsSub: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +35,7 @@ export class WeaponDetailComponent {
 
   getWeapon(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.weaponService.getWeapon(id)
+    this.weaponsSub = this.weaponService.getWeapon(id)
       .subscribe(weapon => this.weapon = weapon);
   }
 
@@ -152,5 +153,9 @@ export class WeaponDetailComponent {
         this.location.back();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.weaponsSub) this.weaponsSub.unsubscribe();
   }
 }

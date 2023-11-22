@@ -19,6 +19,8 @@ export class HeroDetailComponent {
   weapons?: Weapon[];
   readonly MAX_POINTS = 40;
   readonly MIN_POINTS = 1;
+  weaponsSub: any;
+  heroesSub: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,12 +37,12 @@ export class HeroDetailComponent {
       this.hero = new Hero(NaN, '', '', NaN, NaN, NaN, NaN);
     }
 
-    this.getWeapons().subscribe(weapons => this.weapons = weapons);
+    this.weaponsSub = this.getWeapons().subscribe(weapons => this.weapons = weapons);
   }
 
   getHero(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.heroService.getHero(id)
+    this.heroesSub = this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
   }
 
@@ -163,5 +165,10 @@ icon: 'error',
         this.location.back();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.weaponsSub) this.weaponsSub.unsubscribe();
+    if (this.heroesSub) this.heroesSub.unsubscribe();
   }
 }

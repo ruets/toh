@@ -11,6 +11,7 @@ import { MessageService } from '../../services/message/message.service';
 })
 export class WeaponsComponent implements OnInit {
   weapons: Weapon[] = [];
+  weaponsSub: any;
 
   constructor(private weaponService: WeaponService, private messageService: MessageService) { }
 
@@ -19,7 +20,11 @@ export class WeaponsComponent implements OnInit {
   }
 
   getWeapons(): void {
-    this.weaponService.getWeapons()
+    this.weaponsSub = this.weaponService.getWeapons()
       .subscribe(weapons => this.weapons = weapons);
+  }
+
+  ngOnDestroy(): void {
+    if (this.weaponsSub) this.weaponsSub.unsubscribe();
   }
 }

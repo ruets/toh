@@ -11,6 +11,7 @@ import { MessageService } from '../../services/message/message.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  heroesSub: any;
 
   constructor(private heroService: HeroService, private messageService: MessageService) { }
 
@@ -19,7 +20,11 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
+    this.heroesSub = this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
+  }
+
+  ngOnDestroy(): void {
+    if (this.heroesSub) this.heroesSub.unsubscribe();
   }
 }
