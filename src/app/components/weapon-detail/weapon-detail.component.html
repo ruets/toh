@@ -10,25 +10,32 @@
       <input id="weapon-name" [(ngModel)]="weapon.name" placeholder="name">
     </div>
 
+    <div>
+      <label for="weapon-type">Type: </label>
+      <select id="weapon-type" [(ngModel)]="weapon.type">
+        <option *ngFor="let type of Object.keys(WeaponType)" [value]="type">{{type}}</option>
+      </select>
+    </div>
+
     <h3> Stats : </h3>
     <div>
       <label>Attack:</label>
-      <input id="weapon-attack" [class.invalid]="getAttack() < MIN_POINTS" type="number" [(ngModel)]="weapon.attack" placeholder="Attack" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+      <input id="weapon-attack" [class.invalid]="getAttack() < MIN_POINTS || getAttack() > MAX_POINTS" type="number" [(ngModel)]="weapon.attack" placeholder="Attack" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}" (keydown)="onKeyDown($event)">
     </div>
 
     <div>
       <label>Dodge:</label>
-      <input id="weapon-dodge" [class.invalid]="getDodge() < MIN_POINTS" type="number" [(ngModel)]="weapon.dodge" placeholder="Dodge" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+      <input id="weapon-dodge" [class.invalid]="getDodge() < MIN_POINTS || getDodge() > MAX_POINTS" type="number" [(ngModel)]="weapon.dodge" placeholder="Dodge" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}" (keydown)="onKeyDown($event)">
     </div>
 
     <div>
       <label>Damages:</label>
-      <input id="weapon-damages" [class.invalid]="getDamages() < MIN_POINTS" type="number" [(ngModel)]="weapon.damages" placeholder="Damages" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+      <input id="weapon-damages" [class.invalid]="getDamages() < MIN_POINTS || getDamages() > MAX_POINTS" type="number" [(ngModel)]="weapon.damages" placeholder="Damages" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}" (keydown)="onKeyDown($event)">
     </div>
 
     <div>
       <label>Life:</label>
-      <input id="weapon-life" [class.invalid]="getLife() < MIN_POINTS" type="number" [(ngModel)]="weapon.life" placeholder="Life" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}">
+      <input id="weapon-life" [class.invalid]="getLife() < MIN_POINTS || getLife() > MAX_POINTS" type="number" [(ngModel)]="weapon.life" placeholder="Life" min="{{MIN_POINTS}}" max="{{MAX_POINTS}}" (keydown)="onKeyDown($event)">
     </div>
 
     <div>

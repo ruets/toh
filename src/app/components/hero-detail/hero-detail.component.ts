@@ -171,4 +171,11 @@ icon: 'error',
     if (this.weaponsSub) this.weaponsSub.unsubscribe();
     if (this.heroesSub) this.heroesSub.unsubscribe();
   }
+
+  onKeyDown($event: { key: string; keyCode: number; preventDefault: () => void; }) {
+    if ($event.keyCode !== 38 && $event.keyCode !== 40 && $event.keyCode !== 9) {
+      $event.preventDefault();
+      console.log($event.keyCode);
+    }
+  }
 }

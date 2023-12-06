@@ -1,27 +1,38 @@
-# AngularTourOfHeroesRuets
+# Tour of Heroes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+Bienvenue sur Tour of Heroes, un site web vous permettant de créer, personnaliser et éditer vos propres héros et leurs armes. Que vous soyez un maître du jeu, un passionné de jeux de rôle ou simplement quelqu'un qui aime stimuler son imagination, Tour of Heroes est là pour donner vie à vos personnages.
 
-## Development server
+Vous pouvez trouver une vidéo de démonstration du site [ici](assets/preview.mp4).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Fonctionnalités
 
-## Code scaffolding
+### 1. Création, Modification et Suppression de Héros
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Création**: Ajoutez de nouveaux héros à votre univers en spécifiant leurs caractéristiques uniques.
+- **Modification**: Modifiez les détails d'un héros existant pour affiner son histoire et ses compétences.
+- **Suppression**: Supprimez un héros, mais ne vous inquiétez pas, les logs gardent une trace de chaque action effectuée.
 
-## Build
+### 2. Création, Modification et Suppression d'une Arme
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Création**: Concevez des armes époustouflantes avec des caractéristiques uniques.
+- **Modification**: Personnalisez les propriétés d'une arme existante pour l'adapter au mieux à votre héros.
+- **Suppression**: Retirez une arme du jeu si elle n'est plus nécessaire.
 
-## Running unit tests
+### 3. Association d'une Arme à un Héros
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Associez facilement une arme à un héros pour renforcer ses capacités et son histoire.
 
-## Running end-to-end tests
+### 4. Choix du Type d'une Arme et Affichage de l'icône Associée
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Choisissez parmi une variété de types d'armes, chacun ayant son propre ensemble de caractéristiques.
+- L'icône associée à chaque type d'arme est affichée pour une identification rapide et facile.
 
-## Further help
+### 5. Image du Héros Générée Aléatoirement
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Laissez libre cours à votre imagination en générant aléatoirement une image pour votre héros.
+- Une API utilise l'ID du héros comme seed, garantissant des résultats uniques et passionnants à chaque fois.
+
+### 6. Logs Complets
+
+- Les logs détaillés enregistrent chaque action effectuée sur le site.
+- Récupérez des héros supprimés grâce aux informations enregistrées dans les logs.

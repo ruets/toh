@@ -27,7 +27,7 @@ export class WeaponService {
     return collectionData(weapons, {idField: 'id'}) as Observable<Weapon[]>;
   }
 
-  getWeapon(id: string | null): Observable<Weapon> {
+    getWeapon(id: string | undefined | null): Observable<Weapon> {
     // For now, assume that a weapon with the specified `id` always exists.
     // Error handling will be added in the next step of the tutorial.
     const weapon = doc(this.firestore, WeaponService.url + '/' + id);
@@ -44,14 +44,14 @@ export class WeaponService {
   addWeapon(weapon: Weapon): void {
     const weapons = collection(this.firestore, WeaponService.url);
     this.messageService.add(`WeaponService: add weapon id=${weapon.id}`);
-    let newWeapon = {name: weapon.name, attack: weapon.attack, dodge: weapon.dodge, damages: weapon.damages, life: weapon.life}
+    let newWeapon = {name: weapon.name, type:weapon.type, attack: weapon.attack, dodge: weapon.dodge, damages: weapon.damages, life: weapon.life}
     addDoc(weapons, newWeapon);
   }
 
   updateWeapon(weapon: Weapon): void {
     const weaponDoc = doc(this.firestore, WeaponService.url + '/' + weapon.id);
     this.messageService.add(`WeaponService: update weapon id=${weapon.id}`);
-    let newWeapon = {name: weapon.name, attack: weapon.attack, dodge: weapon.dodge, damages: weapon.damages, life: weapon.life}
+    let newWeapon = {name: weapon.name, type:weapon.type, attack: weapon.attack, dodge: weapon.dodge, damages: weapon.damages, life: weapon.life}
     updateDoc(weaponDoc, newWeapon);
   }
 }

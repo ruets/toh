@@ -1,39 +1,18 @@
 <h2>My Heroes</h2>
 
 <div class="row">
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes">
-        <div class="card">
-          <div class="card-border-top"></div>
-          <div class="img">
-<!--            <img src="{{hero.img}}" alt="{{hero.name}}">-->
-            <img
-              src="https://api.dicebear.com/7.x/adventurer/svg?seed={{hero.id}}"
-              alt="avatar"
-              width="70px"
-              height="80px"
-            />
-          </div>
-          <span> {{hero.name}} </span>
-          <p class="stats">
-            Attack: {{hero.attack}} <br>
-            Dodge: {{hero.dodge}} <br>
-            Damages: {{hero.damages}} <br>
-            Life: {{hero.life}} <br>
-          </p>
-          <a routerLink="/heroes/{{hero.id}}">
-            <button> Details </button>
-          </a>
-        </div>
-    </li>
-  </ul>
+    <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+          <app-hero-card [hero]="hero"></app-hero-card>
+        </li>
+    </ul>
 </div>
 
 <a routerLink="/heroes/add">
-  <button class="Btn">
+    <button class="Btn">
 
-    <div class="sign"><svg viewBox="0 -960 960 960"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
+        <div class="sign"><svg viewBox="0 -960 960 960"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></div>
 
-    <div class="text">Add</div>
-  </button>
+        <div class="text">Add</div>
+    </button>
 </a>

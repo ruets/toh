@@ -13,7 +13,6 @@ export class DashboardComponent implements OnInit {
   pseudo = "Player"
   heroesSub: any;
   weaponsSub: any;
-  // TODO : modify and add a modal to modify pseudo
 
   constructor(private heroService: HeroService, private weaponService: WeaponService) { }
 

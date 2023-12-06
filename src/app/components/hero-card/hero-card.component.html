@@ -1,0 +1,39 @@
+<div *ngIf="hero"
+  class="card"
+  (mouseover)="hero.imgURL = 'https://api.dicebear.com/7.x/adventurer/svg?seed=' + hero.id + '&eyebrows=variant02&eyes=variant26&mouth=variant04&scale=150'"
+  (mouseout)="hero.imgURL = 'https://api.dicebear.com/7.x/adventurer/svg?seed=' + hero.id"
+>
+  <div class="card-border-top"></div>
+  <div class="img">
+    <img
+      src="{{hero.imgURL ?? 'https://api.dicebear.com/7.x/adventurer/svg?seed=' + hero.id}}"
+      alt="avatar"
+      width="70px"
+      height="80px"
+    />
+  </div>
+  <span>
+    {{hero.name}}
+    <img *ngIf="hero.weapon"
+       src="{{WeaponType[hero.weapon.type]}}"
+       alt="weapon icon"
+    />
+  </span>
+  <p *ngIf="hero.weapon" class="stats">
+    Attack: {{hero.attack}} + {{(hero.weapon) ? hero.weapon?.attack : 0}} <br>
+    Dodge: {{hero.dodge}} + {{(hero.weapon) ? hero.weapon?.dodge : 0}} <br>
+    Damages: {{hero.damages}} + {{(hero.weapon) ? hero.weapon?.damages : 0}} <br>
+    Life: {{hero.life}} + {{(hero.weapon) ? hero.weapon?.life : 0}} <br>
+  </p>
+
+  <p *ngIf="!hero.weapon" class="stats">
+    Attack: {{hero.attack}} <br>
+    Dodge: {{hero.dodge}} <br>
+    Damages: {{hero.damages}} <br>
+    Life: {{hero.life}} <br>
+  </p>
+
+  <a routerLink="/heroes/{{hero.id}}">
+    <button> Details </button>
+  </a>
+</div>

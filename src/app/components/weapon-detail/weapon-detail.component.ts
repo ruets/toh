@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import {Component, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 import swal from 'sweetalert2';
 
-import { WeaponService } from '../../services/weapon/weapon.service';
-import { Weapon} from "../../model/weapon";
+import {WeaponService} from '../../services/weapon/weapon.service';
+import {Weapon, WeaponType} from "../../model/weapon";
 
 @Component({
   selector: 'app-weapon-detail',
@@ -12,6 +12,9 @@ import { Weapon} from "../../model/weapon";
   styleUrls: ['./weapon-detail.component.scss']
 })
 export class WeaponDetailComponent {
+  protected readonly WeaponType = WeaponType;
+  protected readonly Object = Object;
+
   @Input() weapon?: Weapon;
   readonly MAX_POINTS = 5;
   readonly MIN_POINTS = -5;
@@ -29,7 +32,7 @@ export class WeaponDetailComponent {
     if (id != 'add') {
       this.getWeapon();
     } else {
-      this.weapon = {id: NaN, name: '', attack: NaN, dodge: NaN, damages: NaN, life: NaN};
+      this.weapon = {id: NaN, type: "Sword", name: '', attack: NaN, dodge: NaN, damages: NaN, life: NaN};
     }
   }
 
@@ -157,5 +160,12 @@ export class WeaponDetailComponent {
 
   ngOnDestroy(): void {
     if (this.weaponsSub) this.weaponsSub.unsubscribe();
+  }
+
+  onKeyDown($event: { key: string; keyCode: number; preventDefault: () => void; }) {
+    if ($event.keyCode !== 38 && $event.keyCode !== 40 && $event.keyCode !== 9) {
+      $event.preventDefault();
+      console.log($event.keyCode);
+    }
   }
 }

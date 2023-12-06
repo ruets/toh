@@ -1,0 +1,68 @@
+/* HeroesCardComponent's private SCSS styles */
+.card {
+  width: 190px;
+  height: 254px;
+  background: #D2B48C;
+  border-radius: 15px;
+  box-shadow: 1px 5px 60px 0px #6969696b;
+
+  .card-border-top {
+    width: 60%;
+    height: 3%;
+    background: #8B4513;
+    margin: auto;
+    border-radius: 0px 0px 15px 15px;
+  }
+
+  span {
+    font-weight: 600;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .stats {
+    font-weight: 400;
+    color: black;
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+    font-size: 12px;
+  }
+
+  .img {
+    width: 70px;
+    height: 80px;
+    background: #8B4513;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 25px;
+  }
+
+  button {
+    padding: 8px 25px;
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    border: none;
+    margin-top: 30px;
+    background: #8B4513;
+    color: white;
+    font-weight: 600;
+  }
+
+  button:hover {
+    background: #582907;
+  }
+}

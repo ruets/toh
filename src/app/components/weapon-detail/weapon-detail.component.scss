@@ -1,26 +1,28 @@
 /* WeaponDetailComponent's private SCSS styles */
 label {
-  color: #435960;
+  color: white;
   font-weight: bold;
 }
-input {
+input, select {
   font-size: 1em;
   padding: .5rem;
 }
 button {
   margin-top: 20px;
-  background-color: #eee;
+  background-color: #8B4513;
   padding: 1rem;
   border-radius: 4px;
   font-size: 1rem;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
+  color: white;
+
+  &:hover {
+    background-color: #582907;
+  }
+  &:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
 }
 
 .weapon-stats{
@@ -38,12 +40,29 @@ button:disabled {
       margin-right: 10px;
     }
 
-    input{
+    input, select{
       width: 7.5rem;
+      height: 40px;
+      line-height: 28px;
+      padding: 0 1rem;
+      border-radius: 8px;
+      outline: none;
+      background-color: #8B4513;
+      border: 2px solid transparent;
+      color: white;
+      transition: .3s ease;
+
+      &::placeholder {
+        color: white;
+      }
+      &:focus, &:hover {
+        outline: none;
+        background-color: #582907;
+      }
     }
   }
 }
 
-.invalid{
-  border-color: red;
+.invalid {
+  background-color: red !important;
 }

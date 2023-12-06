@@ -1,5 +1,4 @@
 import {Weapon} from "./weapon";
-import {WeaponService} from "../services/weapon/weapon.service";
 
 export class Hero {
   // Only theses data are stored in the database
@@ -12,10 +11,11 @@ export class Hero {
   life: number;
 
   // The following data are not stored in the database and is initialized in the constructor
-  weapon?: Weapon;
   imgURL?: string;
+  weapon?: Weapon;
+  weaponSub: any;
 
-    constructor(id: number, name: string, weaponId: string, attack: number, dodge: number, damages: number, life: number) {
+  constructor(id: number, name: string, weaponId: string, attack: number, dodge: number, damages: number, life: number) {
     this.id = id;
     this.name = name;
     this.weaponId = weaponId;
@@ -24,14 +24,7 @@ export class Hero {
     this.damages = damages;
     this.life = life;
 
-    this.getWeapon();
     this.imgURL = "https://api.dicebear.com/7.x/adventurer/svg?seed=" + this.name;
-  }
 
-  getWeapon(): void {
-    if (this.weaponId) {
-      WeaponService.prototype.getWeapon(this.weaponId)
-        .subscribe(weapon => this.weapon = weapon);
-    }
   }
 }
