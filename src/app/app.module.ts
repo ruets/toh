@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { WeaponsComponent } from './components/weapons/weapons.component';
 import { WeaponDetailComponent } from './components/weapon-detail/weapon-detail.component';
+import { HeroCardComponent } from './components/hero-card/hero-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WeaponDetailComponent } from './components/weapon-detail/weapon-detail.
     MessagesComponent,
     DashboardComponent,
     WeaponsComponent,
-    WeaponDetailComponent
+    WeaponDetailComponent,
+    HeroCardComponent
   ],
   imports: [
     BrowserModule,

@@ -4,37 +4,10 @@
   list-style-type: none;
   padding: 0;
   width: 15em;
-}
-
-#weapons-main-div{
-  display: flex;
-  flex-direction: row;
-
-  a {
-    background-color: #8B4513;
-    border-radius: 2px;
-    padding: 1rem;
-    font-size: 1.2rem;
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    text-align: center;
-    width: 6.25rem;
-    margin: .5rem;
-    box-sizing: border-box;
-
-  }
-
-  @media (min-width: 600px) {
-    a {
-      width: 6.25rem;
-      box-sizing: content-box;
-    }
-  }
-
-  a:hover {
-    background-color: #582907;
-  }
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 1em;
+  grid-auto-rows: minmax(1080px, auto);
 }
 
 .card {
@@ -72,7 +45,7 @@
 
   .img {
     width: 70px;
-    height: 80px;
+    height: 70px;
     background: #8B4513;
     border-radius: 15px;
     margin: auto;

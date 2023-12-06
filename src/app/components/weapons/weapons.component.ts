@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Weapon } from "../../model/weapon";
+import {Weapon, WeaponType} from "../../model/weapon";
 import { WeaponService } from "../../services/weapon/weapon.service";
 import { MessageService } from '../../services/message/message.service';
 
@@ -27,4 +27,6 @@ export class WeaponsComponent implements OnInit {
   ngOnDestroy(): void {
     if (this.weaponsSub) this.weaponsSub.unsubscribe();
   }
+
+  protected readonly WeaponType = WeaponType;
 }
